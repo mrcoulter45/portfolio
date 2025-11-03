@@ -198,6 +198,65 @@
         min-width: 0;
       }
 
+      .media-list {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(1.5rem, 3vw, 2.5rem);
+      }
+
+      .media-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid #ff00ff44;
+        border-radius: 12px;
+        box-shadow: 0 0 18px #6600cc;
+        padding: clamp(1.4rem, 3vw, 2.2rem);
+        display: flex;
+        flex-direction: column;
+        gap: clamp(1rem, 2vw, 1.5rem);
+        box-sizing: border-box;
+      }
+
+      .media-card.video-card {
+        align-items: stretch;
+      }
+
+      .media-link {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .media-link:hover,
+      .media-link:focus-visible {
+        text-decoration: none;
+        outline: none;
+        box-shadow: 0 0 18px #00ffff99;
+      }
+
+      .media-card-content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: clamp(1rem, 3vw, 2rem);
+        width: 100%;
+      }
+
+      .media-card-visual {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(0.5rem, 1.5vw, 0.75rem);
+      }
+
+      .media-card-image {
+        width: min(100%, clamp(10rem, 38vw, 18rem));
+        height: auto;
+        border-radius: 10px;
+        object-fit: contain;
+        box-shadow: 0 0 12px #00ffff66;
+        flex: 0 0 auto;
+      }
+
       .grid {
         display: grid;
         gap: 1.5rem;
@@ -426,17 +485,24 @@
       .video-fallback {
         display: inline-flex;
         align-items: center;
+        justify-content: center;
         gap: 0.5rem;
         margin-top: 0.75rem;
+        padding: 0.4rem 0.75rem;
         color: #0ff;
         text-decoration: none;
         font-weight: bold;
+        border: 1px solid rgba(0, 255, 255, 0.35);
+        border-radius: 999px;
+        align-self: center;
+        transition: color 0.3s ease, text-shadow 0.3s ease, border-color 0.3s ease;
       }
 
       .video-fallback:hover,
       .video-fallback:focus-visible {
         color: #fff;
         text-shadow: 0 0 8px #0ff;
+        border-color: #0ff;
         outline: none;
       }
 
@@ -748,6 +814,21 @@
           width: min(100%, 14rem);
           height: auto;
           max-height: none;
+        }
+
+        .media-card {
+          padding: clamp(1.1rem, 5vw, 1.6rem);
+          gap: 1.1rem;
+        }
+
+        .media-card-content {
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+        }
+
+        .media-card-image {
+          width: min(100%, 16rem);
         }
 
         .skills {
@@ -1219,17 +1300,6 @@
           </a>
           <a
             class="card project-card pointer-cursor"
-            href="https://www.tiktok.com/@coult45_/video/7431634190610779434?is_from_webapp=1&sender_device=pc&web_id=7568371727588181535"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="project-card-content pointer-cursor">
-              <span class="project-card-title pointer-cursor">SKELETON MUSIC MOD</span>
-              <img class="pointer-cursor" src="images/skeleton-thumbnail.PNG" alt="Skeleton Music Mod preview" loading="lazy" />
-            </div>
-          </a>
-          <a
-            class="card project-card pointer-cursor"
             href="https://mrcoulter45.github.io/tools/"
             target="_blank"
             rel="noopener noreferrer"
@@ -1324,32 +1394,50 @@
       </section>
       <section id="videos">
         <h2>Media & Videos</h2>
-        <div class="card">
-          <div class="video-embed" data-video-id="1g3eyZjLn6I">
-            <button
-              class="video-launch pointer-cursor"
-              type="button"
-              data-video-title="Hovering AI Robot Assistant"
-              aria-label="Play Hovering AI Robot Assistant video"
-            >
-              <img src="https://img.youtube.com/vi/1g3eyZjLn6I/hqdefault.jpg" alt="" aria-hidden="true" loading="lazy" />
-              <span class="video-launch-overlay">
-                <span class="video-launch-icon">
-                  <i class="fas fa-play" aria-hidden="true"></i>
+        <div class="media-list">
+          <div class="media-card video-card">
+            <div class="video-embed" data-video-id="1g3eyZjLn6I">
+              <button
+                class="video-launch pointer-cursor"
+                type="button"
+                data-video-title="Hovering AI Robot Assistant"
+                aria-label="Play Hovering AI Robot Assistant video"
+              >
+                <img src="https://img.youtube.com/vi/1g3eyZjLn6I/hqdefault.jpg" alt="" aria-hidden="true" loading="lazy" />
+                <span class="video-launch-overlay">
+                  <span class="video-launch-icon">
+                    <i class="fas fa-play" aria-hidden="true"></i>
+                  </span>
+                  <span class="video-launch-text">Play Video</span>
                 </span>
-                <span class="video-launch-text">Play Video</span>
-              </span>
-            </button>
+              </button>
+            </div>
+            <a
+              class="video-fallback pointer-cursor"
+              href="https://www.youtube.com/watch?v=1g3eyZjLn6I"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Watch Hovering AI Robot Assistant video on YouTube"
+            >
+              <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+              Watch on YouTube
+            </a>
           </div>
           <a
-            class="video-fallback pointer-cursor"
-            href="https://www.youtube.com/watch?v=1g3eyZjLn6I"
+            class="media-card media-link pointer-cursor"
+            href="https://www.tiktok.com/@coult45_/video/7431634190610779434?is_from_webapp=1&sender_device=pc&web_id=7568371727588181535"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Watch Hovering AI Robot Assistant video on YouTube"
           >
-            <i class="fas fa-external-link-alt" aria-hidden="true"></i>
-            Watch on YouTube
+            <div class="media-card-content pointer-cursor">
+              <div class="media-card-visual pointer-cursor">
+                <img class="media-card-image pointer-cursor" src="images/skeleton-thumbnail.PNG" alt="Skeleton Music Mod preview" loading="lazy" />
+                <span class="video-fallback pointer-cursor">
+                  <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                  Watch on TikTok
+                </span>
+              </div>
+            </div>
           </a>
         </div>
       </section>
