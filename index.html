@@ -162,6 +162,51 @@
         gap: 1rem;
       }
 
+      .skills-header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.25rem;
+      }
+
+      .skills-header > h2 {
+        margin: 0;
+        margin-right: 0.5rem;
+      }
+
+      .skills-toggle {
+        background: rgba(0, 255, 255, 0.08);
+        border: 1px solid rgba(0, 255, 255, 0.35);
+        color: #fff;
+        font-size: 1.5rem;
+        line-height: 1;
+        padding: 0.25rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 0.35rem;
+        transition: color 0.3s ease, text-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+      }
+
+      .skills-toggle:hover,
+      .skills-toggle:focus-visible {
+        color: #0ff;
+        text-shadow: 0 0 8px #0ff;
+        border-color: #0ff;
+        background: rgba(0, 255, 255, 0.12);
+        outline: none;
+      }
+
+      .skills-toggle .toggle-icon {
+        transition: transform 0.3s ease;
+      }
+
+      .skills-toggle.expanded .toggle-icon {
+        transform: rotate(180deg);
+      }
+
       .skill {
         background: #0ff2;
         padding: 0.5rem 1rem;
@@ -177,6 +222,169 @@
         /* Cyan glow */
         transition: all 0.3s ease;
 /*        cursor: pointer;*/
+      }
+
+      .hidden-skill {
+        display: none !important;
+      }
+
+      .skills-indicator {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.4rem 0.75rem;
+        color: #0ff;
+        font-weight: bold;
+        background: rgba(0, 255, 255, 0.08);
+        border: 1px solid rgba(0, 255, 255, 0.4);
+        border-radius: 999px;
+        font-size: 0.85rem;
+        letter-spacing: 0.05rem;
+        text-transform: uppercase;
+      }
+
+      .skills-indicator:hover,
+      .skills-indicator:focus-visible {
+        color: #0ff;
+        text-shadow: 0 0 8px #0ff;
+        border-color: #0ff;
+        background: rgba(0, 255, 255, 0.12);
+        outline: none;
+      }
+
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .video-embed {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid #ff00ff44;
+        box-shadow: 0 0 20px #6600cc66;
+        background: radial-gradient(circle at top, rgba(255, 0, 255, 0.2), rgba(10, 15, 17, 0.95));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .video-launch {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background: none;
+        padding: 0;
+        cursor: inherit;
+        position: relative;
+        display: block;
+        color: inherit;
+      }
+
+      .video-launch.is-hidden {
+        display: none;
+      }
+
+      .video-launch img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: saturate(1.15);
+        transition: transform 0.4s ease;
+      }
+
+      .video-launch::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(255, 0, 255, 0.35), rgba(0, 255, 255, 0.2));
+        opacity: 0.4;
+        transition: opacity 0.3s ease;
+      }
+
+      .video-launch:hover img,
+      .video-launch:focus-visible img {
+        transform: scale(1.03);
+      }
+
+      .video-launch:hover::before,
+      .video-launch:focus-visible::before {
+        opacity: 0.55;
+      }
+
+      .video-launch-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        text-shadow: 0 0 12px #000;
+        pointer-events: none;
+      }
+
+      .video-launch-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.65);
+        box-shadow: 0 0 18px rgba(0, 255, 255, 0.4);
+        font-size: 1.4rem;
+      }
+
+      .video-launch-text {
+        font-weight: bold;
+        letter-spacing: 0.1rem;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+      }
+
+      .video-error {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        text-align: center;
+        padding: 1rem;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      .video-error:focus-visible {
+        outline: 2px solid #0ff;
+        outline-offset: 4px;
+      }
+
+      .video-fallback {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+        color: #0ff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .video-fallback:hover,
+      .video-fallback:focus-visible {
+        color: #fff;
+        text-shadow: 0 0 8px #0ff;
+        outline: none;
       }
 
       .socials {
@@ -237,6 +445,11 @@
 
       .socials i {
         font-size: 1.2rem;
+      }
+
+      iframe {
+        width: -webkit-fill-available;
+        height: -webkit-fill-available;
       }
 
       footer {
@@ -490,7 +703,9 @@
         }
 
         iframe {
-          height: 200px;
+          width: -webkit-fill-available;
+          height: -webkit-fill-available;
+          max-height: 200px;
         }
 
         form {
@@ -562,6 +777,306 @@
             skill.insertAdjacentElement("afterend", wrapper);
           });
         });
+
+        const skillsSection = document.getElementById("skills");
+        const skillsContainer = document.getElementById("skills-list");
+        const toggleButton = skillsSection ? skillsSection.querySelector(".skills-toggle") : null;
+
+        if (skillsSection && skillsContainer && toggleButton) {
+          const skillItems = Array.from(skillsContainer.querySelectorAll(".skill"));
+          const indicator = document.createElement("span");
+          indicator.className = "skills-indicator pointer-cursor";
+          indicator.setAttribute("role", "button");
+          indicator.setAttribute("tabindex", "0");
+
+          const toggleLabel = toggleButton.querySelector(".visually-hidden");
+          let isCollapsed = true;
+
+          const getExpandLabel = (hiddenCount) => {
+            const plural = hiddenCount === 1 ? "" : "s";
+            return hiddenCount > 0
+              ? `Expand skills list to show ${hiddenCount} more skill${plural}`
+              : "Expand skills list";
+          };
+
+          const updateToggleText = (hiddenCount) => {
+            const label = getExpandLabel(hiddenCount);
+            toggleButton.setAttribute("aria-label", label);
+            if (toggleLabel) {
+              toggleLabel.textContent = label;
+            }
+            return label;
+          };
+
+          const showAllSkills = () => {
+            skillItems.forEach(item => item.classList.remove("hidden-skill"));
+          };
+
+          const applyCollapsedState = () => {
+            showAllSkills();
+            indicator.remove();
+
+            const referenceTop = skillItems.length ? skillItems[0].offsetTop : null;
+            let lastVisible = null;
+            let hiddenCount = 0;
+
+            if (referenceTop !== null) {
+              skillItems.forEach(item => {
+                if (Math.abs(item.offsetTop - referenceTop) <= 1) {
+                  lastVisible = item;
+                } else {
+                  item.classList.add("hidden-skill");
+                  hiddenCount++;
+                }
+              });
+            }
+
+            toggleButton.classList.remove("expanded");
+            toggleButton.setAttribute("aria-expanded", "false");
+            const label = updateToggleText(hiddenCount);
+
+            if (hiddenCount > 0 && lastVisible) {
+              indicator.textContent = `+${hiddenCount} more`;
+              indicator.setAttribute("aria-label", label);
+              indicator.setAttribute("data-hidden-count", String(hiddenCount));
+              lastVisible.insertAdjacentElement("afterend", indicator);
+            } else {
+              indicator.removeAttribute("aria-label");
+              indicator.removeAttribute("data-hidden-count");
+              indicator.remove();
+            }
+            skillsContainer.dataset.collapsed = "true";
+            isCollapsed = true;
+          };
+
+          const applyExpandedState = () => {
+            showAllSkills();
+            indicator.remove();
+            indicator.removeAttribute("aria-label");
+            indicator.removeAttribute("data-hidden-count");
+
+            toggleButton.classList.add("expanded");
+            toggleButton.setAttribute("aria-expanded", "true");
+            toggleButton.setAttribute("aria-label", "Collapse skills list");
+            if (toggleLabel) {
+              toggleLabel.textContent = "Collapse skills list";
+            }
+            skillsContainer.dataset.collapsed = "false";
+            isCollapsed = false;
+          };
+
+          const triggerExpandFromIndicator = () => {
+            if (isCollapsed) {
+              applyExpandedState();
+            }
+          };
+
+          indicator.addEventListener("click", triggerExpandFromIndicator);
+          indicator.addEventListener("keydown", event => {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              triggerExpandFromIndicator();
+            }
+          });
+
+          toggleButton.addEventListener("click", () => {
+            if (isCollapsed) {
+              applyExpandedState();
+            } else {
+              applyCollapsedState();
+            }
+          });
+
+          window.addEventListener("resize", () => {
+            if (isCollapsed) {
+              applyCollapsedState();
+            }
+          });
+
+          applyCollapsedState();
+        }
+
+        if (!window.__ytPlayerRegistry) {
+          window.__ytPlayerRegistry = new Map();
+        }
+
+        if (!window.__ytPlayerMessageHandler) {
+          window.__ytPlayerMessageHandler = event => {
+            let data = event.data;
+            if (!data) {
+              return;
+            }
+
+            if (typeof data === "string") {
+              try {
+                data = JSON.parse(data);
+              } catch (err) {
+                return;
+              }
+            }
+
+            if (!data || typeof data !== "object" || !data.event) {
+              return;
+            }
+
+            const record = window.__ytPlayerRegistry.get(data.id);
+            if (!record) {
+              return;
+            }
+
+            if (data.event === "onReady") {
+              record.onReady();
+              return;
+            }
+
+            if (data.event === "onError") {
+              const errorCode = typeof data.info === "number" ? data.info : data.data;
+              if (errorCode === 150 || errorCode === 153) {
+                record.onBlocked(errorCode);
+              }
+            }
+          };
+
+          window.addEventListener("message", window.__ytPlayerMessageHandler);
+        }
+
+        document.querySelectorAll(".video-embed").forEach(embed => {
+          const videoId = embed.getAttribute("data-video-id");
+          const launchButton = embed.querySelector(".video-launch");
+          const videoTitle = launchButton ? launchButton.getAttribute("data-video-title") : "";
+
+          if (!videoId || !launchButton) {
+            return;
+          }
+
+          const ensureErrorMessage = (message) => {
+            const existing = embed.querySelector(".video-error");
+            if (existing) {
+              existing.querySelector("p").textContent = message;
+              return existing;
+            }
+
+            const errorMessage = document.createElement("div");
+            errorMessage.className = "video-error";
+            errorMessage.classList.add("pointer-cursor");
+            errorMessage.innerHTML = `
+              <p>${message}</p>
+              <span class="video-launch-text">Tap to watch on YouTube</span>
+            `;
+            errorMessage.setAttribute("tabindex", "0");
+            embed.appendChild(errorMessage);
+            return errorMessage;
+          };
+
+          const removeErrorMessage = () => {
+            const errorMessage = embed.querySelector(".video-error");
+            if (errorMessage) {
+              errorMessage.remove();
+            }
+          };
+
+          const createIframe = (autoplay = true) => {
+            if (embed.querySelector("iframe")) {
+              return;
+            }
+
+            const iframe = document.createElement("iframe");
+            const params = new URLSearchParams({
+              autoplay: autoplay ? "1" : "0",
+              modestbranding: "1",
+              rel: "0",
+              playsinline: "1",
+              enablejsapi: "1"
+            });
+            const currentOrigin = window.location.origin;
+            if (currentOrigin && currentOrigin !== "null") {
+              params.set("origin", currentOrigin);
+            }
+
+            const playerId = `yt-player-${videoId}-${Math.random().toString(36).slice(2, 8)}`;
+            iframe.id = playerId;
+            iframe.src = `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
+            iframe.title = videoTitle || "YouTube video player";
+            iframe.width = "560";
+            iframe.height = "315";
+            iframe.setAttribute("frameborder", "0");
+            iframe.setAttribute(
+              "allow",
+              "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            );
+            iframe.allowFullscreen = true;
+            iframe.loading = "lazy";
+
+            launchButton.classList.add("is-hidden");
+            removeErrorMessage();
+            embed.appendChild(iframe);
+
+            const postToPlayer = (data) => {
+              if (iframe.contentWindow) {
+                iframe.contentWindow.postMessage(JSON.stringify({
+                  ...data,
+                  id: playerId,
+                  channel: "widget"
+                }), "*");
+              }
+            };
+
+            const record = {
+              playerId,
+              onReady: () => {
+                postToPlayer({ event: "command", func: autoplay ? "playVideo" : "stopVideo", args: [] });
+                window.__ytPlayerRegistry.delete(playerId);
+              },
+              onBlocked: () => {
+                window.__ytPlayerRegistry.delete(playerId);
+                iframe.remove();
+                launchButton.classList.remove("is-hidden");
+                ensureErrorMessage("This video can't play on embedded players. Use the YouTube link instead.");
+              }
+            };
+
+            window.__ytPlayerRegistry.set(playerId, record);
+
+            const sendListening = () => postToPlayer({ event: "listening" });
+            iframe.addEventListener("load", () => {
+              sendListening();
+              setTimeout(sendListening, 200);
+              setTimeout(sendListening, 600);
+            });
+          };
+
+          const openInNewTab = () => {
+            window.open(`https://www.youtube.com/watch?v=${videoId}`, "_blank", "noopener");
+          };
+
+          launchButton.addEventListener("click", () => {
+            createIframe(true);
+            if (embed.querySelector(".video-error")) {
+              embed.querySelector(".video-error").remove();
+            }
+          });
+
+          launchButton.addEventListener("keydown", event => {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              createIframe(true);
+            }
+          });
+
+          embed.addEventListener("click", event => {
+            const target = event.target;
+            if (target && target.closest(".video-error")) {
+              openInNewTab();
+            }
+          });
+
+          embed.addEventListener("keydown", event => {
+            if ((event.key === "Enter" || event.key === " ") && event.target && event.target.classList.contains("video-error")) {
+              event.preventDefault();
+              openInNewTab();
+            }
+          });
+        });
       };
     </script>
   </head>
@@ -622,8 +1137,14 @@
         </div>
       </section>
       <section id="skills">
-        <h2>Skills</h2>
-        <div class="skills">
+        <div class="skills-header">
+          <h2>Skills</h2>
+          <button class="skills-toggle pointer-cursor" type="button" aria-expanded="false" aria-controls="skills-list">
+            <span class="visually-hidden">Expand skills list</span>
+            <i class="fas fa-chevron-down toggle-icon pointer-cursor" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="skills" id="skills-list" data-collapsed="true">
           <div class="skill pointer-cursor" data-desc="Object-oriented language used for high-performance systems and apps.">C++</div>
           <div class="skill pointer-cursor" data-desc="Versatile scripting for AI, data, automation & backend magic.">Python</div>
           <div class="skill pointer-cursor" data-desc="Component-driven frontend frameworks for dynamic web apps.">Angular</div>
@@ -688,7 +1209,32 @@
       <section id="videos">
         <h2>Media & Videos</h2>
         <div class="card">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/1g3eyZjLn6I" title="Featured Video" frameborder="0" allowfullscreen></iframe>
+          <div class="video-embed" data-video-id="1g3eyZjLn6I">
+            <button
+              class="video-launch pointer-cursor"
+              type="button"
+              data-video-title="Hovering AI Robot Assistant"
+              aria-label="Play Hovering AI Robot Assistant video"
+            >
+              <img src="https://img.youtube.com/vi/1g3eyZjLn6I/hqdefault.jpg" alt="" aria-hidden="true" loading="lazy" />
+              <span class="video-launch-overlay">
+                <span class="video-launch-icon">
+                  <i class="fas fa-play" aria-hidden="true"></i>
+                </span>
+                <span class="video-launch-text">Play Video</span>
+              </span>
+            </button>
+          </div>
+          <a
+            class="video-fallback pointer-cursor"
+            href="https://www.youtube.com/watch?v=1g3eyZjLn6I"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Watch Hovering AI Robot Assistant video on YouTube"
+          >
+            <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+            Watch on YouTube
+          </a>
         </div>
       </section>
       <section id="contact">
