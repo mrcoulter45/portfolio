@@ -149,6 +149,7 @@
         padding: 2rem;
         margin: 1rem 0;
         box-shadow: 0 0 15px #6600cc;
+        box-sizing: border-box;
       }
 
       .project-card {
@@ -168,19 +169,23 @@
       }
 
       .project-card-content {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
         align-items: center;
-        gap: 1rem;
-        padding: 2rem;
+        gap: clamp(1rem, 3vw, 1.75rem);
+        padding: clamp(1.4rem, 3vw, 2rem);
+        width: 100%;
+        box-sizing: border-box;
       }
 
       .project-card img {
-        height: 14rem;
+        width: clamp(8rem, 28vw, 14rem);
+        max-width: 100%;
+        height: auto;
         border-radius: 8px;
-        object-fit: cover;
+        object-fit: contain;
         box-shadow: 0 0 12px #00ffff66;
+        justify-self: center;
       }
 
       .project-card-title {
@@ -188,11 +193,19 @@
         letter-spacing: 0.05rem;
         text-transform: uppercase;
         text-align: left;
+        font-size: clamp(0.95rem, 2vw, 1.1rem);
+        margin: 0;
+        min-width: 0;
       }
 
       .grid {
         display: grid;
         gap: 1.5rem;
+        align-items: stretch;
+      }
+
+      .grid > * {
+        min-width: 0;
       }
 
       .skills {
@@ -715,7 +728,26 @@
         }
 
         .card {
-          padding: 1.2rem;
+          padding: clamp(1rem, 4vw, 1.35rem);
+        }
+
+        .project-card-content {
+          grid-template-columns: 1fr;
+          padding: clamp(1.1rem, 5vw, 1.6rem);
+          gap: 1rem;
+          text-align: center;
+          justify-items: center;
+        }
+
+        .project-card-title {
+          margin-bottom: 0.5rem;
+          text-align: center;
+        }
+
+        .project-card img {
+          width: min(100%, 14rem);
+          height: auto;
+          max-height: none;
         }
 
         .skills {
@@ -1183,6 +1215,28 @@
             <div class="project-card-content pointer-cursor">
               <span class="project-card-title pointer-cursor">Control Anything With Your Phone</span>
               <img class="pointer-cursor" src="images/bb8-light.png" alt="Control Anything With Your Phone project preview" loading="lazy" />
+            </div>
+          </a>
+          <a
+            class="card project-card pointer-cursor"
+            href="https://www.tiktok.com/@coult45_/video/7431634190610779434?is_from_webapp=1&sender_device=pc&web_id=7568371727588181535"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="project-card-content pointer-cursor">
+              <span class="project-card-title pointer-cursor">SKELETON MUSIC MOD</span>
+              <img class="pointer-cursor" src="images/skeleton-thumbnail.PNG" alt="Skeleton Music Mod preview" loading="lazy" />
+            </div>
+          </a>
+          <a
+            class="card project-card pointer-cursor"
+            href="https://mrcoulter45.github.io/tools/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="project-card-content pointer-cursor">
+              <span class="project-card-title pointer-cursor">WEB CODE EDITOR TOOL</span>
+              <img class="pointer-cursor" src="images/synth-sun.png" alt="Web code editor tool preview" loading="lazy" />
             </div>
           </a>
           <a
