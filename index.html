@@ -151,6 +151,45 @@
         box-shadow: 0 0 15px #6600cc;
       }
 
+      .project-card {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        padding: 0;
+        overflow: hidden;
+        cursor: url('images/pointer.cur') 6 0, pointer;
+      }
+
+      .project-card:hover,
+      .project-card:focus-visible {
+        text-decoration: none;
+        outline: none;
+        box-shadow: 0 0 18px #00ffff99;
+      }
+
+      .project-card-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        padding: 2rem;
+      }
+
+      .project-card img {
+        height: 14rem;
+        border-radius: 8px;
+        object-fit: cover;
+        box-shadow: 0 0 12px #00ffff66;
+      }
+
+      .project-card-title {
+        font-weight: bold;
+        letter-spacing: 0.05rem;
+        text-transform: uppercase;
+        text-align: left;
+      }
+
       .grid {
         display: grid;
         gap: 1.5rem;
@@ -167,6 +206,7 @@
         align-items: center;
         justify-content: flex-start;
         gap: 0.25rem;
+        margin-bottom: 0.8rem;
       }
 
       .skills-header > h2 {
@@ -1131,9 +1171,31 @@
       <section id="projects">
         <h2>Projects</h2>
         <div class="grid">
-          <div class="card">Hovering AI robot assistant</div>
-          <div class="card">VR retro-futuristic cityscape</div>
-          <div class="card">BB-8 robot</div>
+          <!-- <div class="card">Hovering AI robot assistant</div> -->
+          <!-- <div class="card">VR retro-futuristic cityscape</div> -->
+          <!-- <div class="card">BB-8 robot</div> -->
+          <a
+            class="card project-card pointer-cursor"
+            href="https://github.com/mrcoulter45/Control-ANYTHING-With-Your-PHONE"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="project-card-content pointer-cursor">
+              <span class="project-card-title pointer-cursor">Control Anything With Your Phone</span>
+              <img class="pointer-cursor" src="images/bb8-light.png" alt="Control Anything With Your Phone project preview" loading="lazy" />
+            </div>
+          </a>
+          <a
+            class="card project-card pointer-cursor"
+            href="https://github.com/mrcoulter45/3-Bit-Counter"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="project-card-content pointer-cursor">
+              <span class="project-card-title pointer-cursor">3-Bit Counter</span>
+              <img class="pointer-cursor" src="https://raw.githubusercontent.com/mrcoulter45/3-Bit-Counter/master/Pictures/3-bit-counter.gif" alt="Animated 3-bit counter project demo" loading="lazy" />
+            </div>
+          </a>
         </div>
       </section>
       <section id="skills">
